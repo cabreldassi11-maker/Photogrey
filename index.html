@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lunettes Photochromiques Premium — Santé & Bien Être | Lubumbashi & Kolwezi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F9F5EF;
+    --warm-bg: #F4EDE2;
+    --gold: #C9922A;
+    --gold-light: #F0C96B;
+    --dark: #1A1208;
+    --mid: #5A4A2E;
+    --soft: #A08B6B;
+    --white: #FDFAF6;
+    --green: #2E6B3E;
+    --green-light: #EAF3DE;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--dark);
+    color: var(--gold-light);
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid #E8DFCF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--dark);
+    letter-spacing: 0.02em;
+  }
+  .brand span { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    padding: 10px 22px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 2px;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--dark);
+    color: var(--white);
+    padding: 80px 32px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 0%, rgba(201,146,42,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 5px 16px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 7vw, 62px);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    max-width: 480px;
+    margin: 0 auto 36px;
+    font-weight: 300;
+  }
+  .price-block {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,146,42,0.3);
+    border-radius: 4px;
+    padding: 16px 32px;
+    margin-bottom: 28px;
+  }
+  .old-price { font-size: 16px; color: rgba(255,255,255,0.35); text-decoration: line-through; }
+  .new-price { font-size: 40px; font-weight: 500; color: var(--gold-light); letter-spacing: -1px; }
+  .price-note { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 4px; }
+  .hero-cta {
+    display: inline-block;
+    background: #25D366;
+    color: #fff;
+    padding: 16px 40px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 2px;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: opacity 0.2s;
+  }
+  .hero-cta:hover { opacity: 0.9; }
+  .hero-cta svg { display: inline; vertical-align: middle; margin-right: 8px; margin-top: -2px; }
+  .hero-assurance {
+    margin-top: 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.06em;
+  }
+    /* Style pour les deux images côte à côte */
+  .hero-images-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 auto 25px;
+    padding: 0 15px;
+    max-width: 400px;
+  }
+
+  .hero-img-box {
+    flex: 1;
+    max-width: 150px;
+    text-align: center;
+  }
+
+  .hero-img-box img {
+    width: 100%; /* Force l'image à respecter la largeur du téléphone */
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--gold);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: block;
+  }
+
+  .img-label {
+    font-size: 10px;
+    color: var(--gold-light);
+    margin-top: 6px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section { padding: 72px 24px; max-width: 800px; margin: 0 auto; }
+  .section-wide { padding: 72px 24px; max-width: 1000px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-sub { font-size: 15px; color: var(--soft); max-width: 520px; margin-bottom: 40px; }
+
+  /* ── PAIN POINTS ── */
+  .pain-section { background: var(--warm-bg); }
+  .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .pain-card {
+    background: var(--white);
+    border: 1px solid #E3D8C8;
+    border-radius: 4px;
+    padding: 20px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .pain-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #FCEBEB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 15px;
+  }
+  .pain-text { font-size: 14px; color: var(--mid); line-height: 1.5; }
+
+  /* ── TRANSFORMATION ── */
+  .transform-section { background: var(--dark); color: var(--white); }
+  .transform-wrap { padding: 72px 24px; max-width: 800px; margin: 0 auto; text-align: center; }
+  .transform-wrap .section-title { color: var(--white); }
+  .dual-card {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: center;
+    margin-top: 40px;
+  }
+  .mode-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 28px 20px;
+  }
+  .mode-icon { font-size: 28px; margin-bottom: 10px; }
+  .mode-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 6px; }
+  .mode-desc { font-size: 13px; color: rgba(255,255,255,0.55); }
+  .arrow-mid { font-size: 24px; color: var(--gold); padding: 0 16px; }
+  .timer-chip {
+    display: inline-block;
+    background: rgba(201,146,42,0.15);
+    border: 1px solid rgba(201,146,42,0.4);
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-size: 12px;
+    color: var(--gold-light);
+    margin-top: 24px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── FEATURES ── */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .feature-card {
+    background: var(--white);
+    border: 1px solid #E3D8C8;
+    border-radius: 6px;
+    padding: 24px 20px;
+  }
+  .feat-icon { font-size: 22px; margin-bottom: 12px; }
+  .feat-title { font-size: 14px; font-weight: 500; color: var(--dark); margin-bottom: 6px; }
+  .feat-desc { font-size: 13px; color: var(--soft); line-height: 1.6; }
+
+  /* ── SPECS TABLE ── */
+  .specs-section { background: var(--warm-bg); }
+  .specs-table { width: 100%; border-collapse: collapse; margin-top: 28px; }
+  .specs-table tr { border-bottom: 1px solid #E3D8C8; }
+  .specs-table td { padding: 14px 0; font-size: 14px; }
+  .specs-table td:first-child { color: var(--soft); width: 55%; }
+  .specs-table td:last-child { color: var(--dark); font-weight: 500; text-align: right; }
+  .spec-check { color: var(--green); }
+
+  /* ── TESTIMONIALS ── */
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 32px; }
+  .testi-card {
+    background: var(--white);
+    border: 1px solid #E3D8C8;
+    border-radius: 6px;
+    padding: 22px 20px;
+  }
+  .stars { color: var(--gold); font-size: 13px; margin-bottom: 10px; }
+  .testi-text { font-size: 14px; color: var(--mid); line-height: 1.65; margin-bottom: 16px; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 10px; }
+  .avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--warm-bg); border: 1px solid #E3D8C8;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 500; color: var(--mid);
+    flex-shrink: 0;
+  }
+  .author-name { font-size: 13px; font-weight: 500; color: var(--dark); }
+  .author-loc { font-size: 12px; color: var(--soft); }
+
+  /* ── GUARANTEES ── */
+  .guarantees-section { background: var(--dark); color: var(--white); }
+  .guarantees-wrap { padding: 72px 24px; max-width: 900px; margin: 0 auto; }
+  .guarantees-wrap .section-title { color: var(--white); text-align: center; margin-bottom: 40px; }
+  .guarantee-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+  .guarantee-card {
+    text-align: center;
+    padding: 28px 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+  }
+  .g-icon { font-size: 28px; margin-bottom: 12px; }
+  .g-title { font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
+  .g-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.55; }
+
+  /* ── FAQ ── */
+  .faq-list { margin-top: 32px; display: flex; flex-direction: column; gap: 0; }
+  .faq-item { border-bottom: 1px solid #E3D8C8; }
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--dark);
+    cursor: pointer;
+    user-select: none;
+    gap: 16px;
+  }
+  .faq-question:hover { color: var(--gold); }
+  .faq-arrow { font-size: 18px; color: var(--gold); flex-shrink: 0; transition: transform 0.25s; }
+  .faq-answer {
+    font-size: 14px;
+    color: var(--soft);
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s;
+    padding: 0 0 0;
+  }
+  .faq-item.open .faq-answer { max-height: 200px; padding-bottom: 18px; }
+  .faq-item.open .faq-arrow { transform: rotate(45deg); }
+
+  /* ── ORDER ── */
+  .order-section { background: var(--warm-bg); }
+  .order-wrap { padding: 72px 24px; max-width: 560px; margin: 0 auto; }
+  .order-wrap .section-title { margin-bottom: 32px; }
+  .offer-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+  .offer-btn {
+    border: 1.5px solid #E3D8C8;
+    background: var(--white);
+    border-radius: 6px;
+    padding: 16px 12px;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.2s, background 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .offer-btn.active {
+    border-color: var(--gold);
+    background: rgba(201,146,42,0.05);
+  }
+  .offer-btn .offer-label { font-size: 13px; font-weight: 500; color: var(--dark); display: block; margin-bottom: 4px; }
+  .offer-btn .offer-price { font-size: 18px; font-weight: 500; color: var(--gold); display: block; }
+  .offer-btn .offer-note { font-size: 11px; color: var(--soft); display: block; margin-top: 2px; }
+  .offer-btn.active .offer-note { color: var(--green); }
+  .form-field { margin-bottom: 16px; }
+  .form-field label { display: block; font-size: 13px; color: var(--soft); margin-bottom: 6px; letter-spacing: 0.02em; }
+  .form-field input, .form-field select {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid #D8CCBA;
+    background: var(--white);
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--dark);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-field input:focus, .form-field select:focus { border-color: var(--gold); }
+  .form-field textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid #D8CCBA;
+    background: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--mid);
+    outline: none;
+    resize: none;
+    height: 80px;
+    transition: border-color 0.2s;
+  }
+  .form-field textarea:focus { border-color: var(--gold); }
+  .submit-btn {
+    width: 100%;
+    background: #25D366;
+    color: #fff;
+    border: none;
+    padding: 18px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    margin-top: 8px;
+    transition: opacity 0.2s;
+  }
+  .submit-btn:hover { opacity: 0.9; }
+  .form-reassurance {
+    text-align: center;
+    font-size: 12px;
+    color: var(--soft);
+    margin-top: 12px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── CONFIRMATION ── */
+  .confirm-box {
+    display: none;
+    text-align: center;
+    padding: 40px 24px;
+    background: var(--white);
+    border: 1px solid #E3D8C8;
+    border-radius: 8px;
+  }
+  .confirm-box.visible { display: block; }
+  .confirm-icon { font-size: 40px; margin-bottom: 16px; }
+  .confirm-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+  .confirm-text { font-size: 14px; color: var(--soft); line-height: 1.7; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 32px 16px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  footer .brand { color: rgba(255,255,255,0.8); margin-bottom: 6px; font-size: 16px; }
+
+  /* ── STICKY BOTTOM CTA (mobile) ── */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--dark);
+    border-top: 1px solid rgba(201,146,42,0.3);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    z-index: 200;
+  }
+  .sticky-info { font-size: 13px; color: rgba(255,255,255,0.6); }
+  .sticky-info strong { color: var(--gold-light); font-weight: 500; }
+  .sticky-btn {
+    background: #25D366;
+    color: #fff;
+    border: none;
+    padding: 11px 22px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    border-radius: 2px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 14px 16px; }
+    .hero { padding: 56px 20px 48px; }
+    .dual-card { grid-template-columns: 1fr; gap: 12px; }
+    .arrow-mid { transform: rotate(90deg); text-align: center; }
+    .section, .section-wide { padding: 56px 20px; }
+  }
+
+  /* ── DIVIDER ── */
+  .gold-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); max-width: 200px; margin: 0 auto; }
+    /* Section 16:9 Porté */
+  .lifestyle-container {
+    padding: 0 20px;
+    margin: 40px auto;
+    max-width: 600px;
+  }
+
+  .frame-16-9 {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #1a1a1a;
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  }
+
+  .frame-16-9 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .frame-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: var(--gold-light);
+    padding: 15px;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+    /* Style pour les mini-images de caractéristiques */
+  .feat-icon-img {
+    width: 50px;       /* Petite taille pour mobile */
+    height: 50px;
+    object-fit: cover; /* Remplit le cercle sans déformer */
+    border-radius: 50%; /* Crée le cercle */
+    border: 1px solid var(--gold); /* Bordure dorée fine */
+    box-shadow: 0 2px 8px rgba(201,146,42,0.3); /* Léger éclat doré */
+    margin-bottom: 15px; /* Espace avec le titre */
+    display: block;    /* Centre l'image si nécessaire */
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  ✦ Livraison gratuite à domicile · Paiement en espèces à la réception · Lubumbashi &amp; Kolwezi ✦
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="brand">Santé <span>&</span> Bien Être</div>
+  <a href="#commander" class="nav-cta">Commander — 30$</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  
+<div class="hero-images-row">
+  <div class="hero-img-box">
+    <img src="indoor.jpg" alt="Mode intérieur">
+    <div class="img-label">INTÉRIEUR</div>
+  </div>
+  <div class="hero-img-box">
+    <img src="outdoor.jpg" alt="Mode soleil">
+    <div class="img-label">EXTÉRIEUR</div>
+  </div>
+</div>
+
+  <div class="hero-badge">Technologie photochromique · Anti lumière bleue · UV400</div>
+  <h1>Une seule paire.<br><em>Une protection totale.</em></h1>
+  <p class="hero-sub">Transparentes en intérieur, sombres au soleil — tes yeux protégés des écrans ET du soleil, en permanence.</p>
+  <div class="price-block">
+    <span class="old-price">50$</span>
+    <span class="new-price">30$</span>
+  </div>
+  <p class="price-note" style="color:rgba(255,255,255,0.45);margin-bottom:28px;font-size:12px;">Boîtier rigide inclus · Offre limitée</p>
+  <div class="lifestyle-container">
+    <div class="frame-16-9">
+      <img src="femme-or-interieur.jpg" alt="Mode intérieur">
+      <div class="frame-label">Protection UV & Anti-Lumière Bleue</div>
+    </div>
+
+    <div class="frame-16-9">
+      <img src="femme-or-soleil.jpg" alt="Mode extérieur">
+      <div class="frame-label">Teinte Automatique au Soleil</div>
+    </div>
+  </div>
+
+  <br>
+  <a href="#commander" class="hero-cta">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.116 1.518 5.847L.057 23.882l6.185-1.44A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.374l-.359-.213-3.723.866.901-3.624-.234-.371A9.818 9.818 0 1112 21.818z"/></svg>
+    Commander sur WhatsApp — 30$
+  </a>
+  <div class="hero-assurance">Paiement à la livraison · Tu vérifies d'abord · Zéro risque</div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain-section">
+  <div class="section">
+    <div class="section-label">Le problème</div>
+    <h2 class="section-title">Ce que vivent<br>tes <em>yeux chaque jour</em></h2>
+    <p class="section-sub">Sous le soleil intense de Lubumbashi ou face à ton écran des heures durant — tes yeux souffrent en silence.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">🔥</div>
+        <div class="pain-text">Yeux brûlants et fatigués après une journée sur écran</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">☀️</div>
+        <div class="pain-text">Ébloui par le soleil intense lors de tes déplacements</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🤕</div>
+        <div class="pain-text">Maux de tête le soir à cause de la lumière bleue des écrans</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">💸</div>
+        <div class="pain-text">Dépenser pour deux paires : lunettes de vue + lunettes de soleil</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATION -->
+<section class="transform-section">
+  <div class="transform-wrap">
+    <div class="section-label" style="color:var(--gold-light);">La solution</div>
+    <h2 class="section-title" style="color:var(--white);">Une paire — <em>deux modes</em></h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.55);max-width:440px;margin:0 auto;">Les verres s'adaptent automatiquement à la luminosité. Plus besoin de changer de lunettes.</p>
+    <div class="dual-card" style="margin-top:40px;">
+      <div class="mode-card">
+        <div class="mode-icon">🏠</div>
+        <div class="mode-label">Intérieur — écran</div>
+        <div style="font-size:20px;font-weight:500;color:var(--white);margin:8px 0;">Verre clair</div>
+        <div class="mode-desc">Filtre la lumière bleue · Repose les yeux · Design discret et élégant</div>
+      </div>
+      <div class="arrow-mid">→</div>
+      <div class="mode-card">
+        <div class="mode-icon">☀️</div>
+        <div class="mode-label">Extérieur — soleil</div>
+        <div style="font-size:20px;font-weight:500;color:var(--gold-light);margin:8px 0;">Verre sombre</div>
+        <div class="mode-desc">Bloque 99% UV · Réduit l'éblouissement · Protection certifiée UV400</div>
+      </div>
+    </div>
+    <div class="timer-chip">⚡ Transition en moins de 30 secondes</div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section>
+  <div class="section-wide">
+    <div class="section-label">Construction</div>
+    <h2 class="section-title">4 détails qui font<br><em>toute la différence</em></h2>
+    <p class="section-sub">Chaque composant a été choisi pour durer sous la chaleur et s'adapter à toutes les morphologies.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feat-icon">️<img src="mini-monture.jpg" alt="Zoom monture" class="feat-icon-img">
+</div>
+        <div class="feat-title">Monture acier inoxydable</div>
+        <div class="feat-desc">Ultra-légère, résistante à la corrosion et à la sueur. Tient des années sans se déformer, même sous la chaleur de Lubumbashi.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon"><img src="mini-charniere.jpg" alt="Zoom charnière ressort" class="feat-icon-img">
+</div>
+        <div class="feat-title">Spring Hinge — charnière ressort</div>
+        <div class="feat-desc">Design triangulaire stable. Les branches s'ouvrent largement pour toutes les morphologies sans jamais casser.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon"><img src="mini-plaquettes.jpg" alt="Zoom plaquettes nez" class="feat-icon-img">
+</div>
+        <div class="feat-title">Plaquettes en silicone souple</div>
+        <div class="feat-desc">Aucune pression sur l'arête du nez. Confortables même après 8 heures de port continu. Ne glissent pas.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon"><img src="mini-branches.jpg" alt="Zoom branches silicone" class="feat-icon-img">
+</div>
+        <div class="feat-title">Branches antidérapantes</div>
+        <div class="feat-desc">Silicone aux extrémités. Restent en place même en voiture, en sport ou sous la chaleur intense.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="specs-section">
+  <div class="section">
+    <div class="section-label">Fiche technique</div>
+    <h2 class="section-title">Tout ce que ces lunettes<br><em>font pour toi</em></h2>
+    <table class="specs-table">
+      <tr><td>Protection UV</td><td class="spec-check">UV400 — 99% bloqué ✓</td></tr>
+      <tr><td>Anti lumière bleue</td><td class="spec-check">✓ Oui</td></tr>
+      <tr><td>Antireflet</td><td class="spec-check">✓ Oui</td></tr>
+      <tr><td>Photochromique</td><td>Transition &lt; 30 secondes</td></tr>
+      <tr><td>Monture</td><td>Acier inoxydable</td></tr>
+      <tr><td>Plaquettes nez</td><td>Silicone souple</td></tr>
+      <tr><td>Charnière</td><td>Spring Hinge triangulaire</td></tr>
+      <tr><td>Inclus</td><td>Boîtier rigide de protection</td></tr>
+      <tr><td>Prix</td><td style="color:var(--gold);font-size:18px;">30$</td></tr>
+    </table>
+    <a href="#commander" class="nav-cta" style="display:inline-block;margin-top:28px;padding:14px 32px;">Commander maintenant — 30$</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="section-wide">
+    <div class="section-label">Ils témoignent</div>
+    <h2 class="section-title">Ce que disent nos<br><em>clients à Lubumbashi</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">« Le soleil de Lubumbashi est vraiment intense. Au début j'hésitais sur le prix, mais franchement ces lunettes m'ont sauvé les yeux en voiture. Elles foncent instantanément dès que je sors. »</p>
+        <div class="testi-author">
+          <div class="avatar">CM</div>
+          <div><div class="author-name">Christian M.</div><div class="author-loc">📍 Lubumbashi · il y a 2 jours</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">« Je travaille toute la journée sur mon téléphone. Depuis que je porte ces lunettes, plus de maux de tête le soir. J'aurais peut-être préféré un modèle plus grand pour mon visage, mais le confort est vraiment incroyable. »</p>
+        <div class="testi-author">
+          <div class="avatar">PK</div>
+          <div><div class="author-name">Prisca K.</div><div class="author-loc">📍 Kolwezi · il y a 4 jours</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">« Belle monture, légère et confortable. J'ai oublié que je les portais pendant 6 heures. Le verre qui change de couleur au soleil a surpris tout le bureau — je réponds à des questions depuis 😄 »</p>
+        <div class="testi-author">
+          <div class="avatar">SN</div>
+          <div><div class="author-name">Serge N.</div><div class="author-loc">📍 Lubumbashi · il y a 1 semaine</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEES -->
+<section class="guarantees-section">
+  <div class="guarantees-wrap">
+    <div class="section-label" style="color:var(--gold-light);text-align:center;">Risque zéro</div>
+    <h2 class="section-title" style="text-align:center;">Tu es <em>100% protégé</em></h2>
+    <div class="guarantee-grid">
+      <div class="guarantee-card">
+        <div class="g-icon">✅</div>
+        <div class="g-title">Satisfait ou refusé</div>
+        <div class="g-desc">Tu inspectes la paire à la livraison avant de payer. Si elle ne te convient pas, tu refuses — aucune obligation.</div>
+      </div>
+      <div class="guarantee-card">
+        <div class="g-icon">💵</div>
+        <div class="g-title">Paiement à la réception</div>
+        <div class="g-desc">Tu payes en espèces seulement quand le livreur est chez toi. Aucun paiement en avance.</div>
+      </div>
+      <div class="guarantee-card">
+        <div class="g-icon">🚚</div>
+        <div class="g-title">Livraison gratuite</div>
+        <div class="g-desc">Livraison à domicile offerte à Lubumbashi et Kolwezi. Reçois ta paire aujourd'hui si tu commandes maintenant.</div>
+      </div>
+      <div class="guarantee-card">
+        <div class="g-icon">📦</div>
+        <div class="g-title">Boîtier inclus</div>
+        <div class="g-desc">Chaque paire est livrée avec son boîtier rigide de protection. Tes lunettes sont en sécurité partout.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="section">
+    <div class="section-label">Questions fréquentes</div>
+    <h2 class="section-title">Tu as des <em>questions ?</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Est-ce que ces lunettes fonctionnent avec des lunettes de correction ?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">Non, ces lunettes ne sont pas des lunettes de correction optique. Ce sont des lunettes de protection à verres plats. Si tu as besoin de correction, il est recommandé de les porter par-dessus tes lentilles de contact.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Combien de temps dure la livraison ?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">La livraison se fait dans la journée à Lubumbashi et Kolwezi, dans les 2 à 4 heures après confirmation de ta commande via WhatsApp.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Est-ce que les verres restent sombres à l'intérieur d'une voiture ?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">Bonne question ! Les vitres de voiture filtrent une partie des UV, ce qui peut légèrement ralentir la transition. Mais dès que tu poses la main sur la vitre ou que le soleil est très intense, les verres foncent tout de même bien.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Et si la paire ne me convient pas à la livraison ?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">Tu l'inspectes librement devant le livreur. Si tu n'es pas satisfait(e), tu refuses simplement la paire et tu ne payes rien. Zéro risque, zéro pression.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Pourquoi le prix est-il à 30$ au lieu de 50$ ?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">Nous vendons en direct, sans intermédiaire ni boutique physique, ce qui nous permet de proposer un prix bien plus bas que les opticiens classiques. C'est le même type de lunettes que tu trouverais à 50$+ en magasin.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER FORM -->
+<section class="order-section" id="commander">
+  <div class="order-wrap">
+    <div class="section-label">Commander</div>
+    <h2 class="section-title" style="margin-bottom:8px;">Reçois ta paire<br><em>aujourd'hui</em></h2>
+    <p style="font-size:14px;color:var(--soft);margin-bottom:28px;">Remplis le formulaire, puis envoie ta commande sur WhatsApp.</p>
+
+    <div id="order-form">
+      <div class="offer-toggle">
+        <button class="offer-btn active" onclick="selectOffer(this, 1)" type="button">
+          <span class="offer-label">👓 1 Paire</span>
+          <span class="offer-price">30$</span>
+          <span class="offer-note">+ boîtier inclus</span>
+        </button>
+        <button class="offer-btn" onclick="selectOffer(this, 2)" type="button">
+          <span class="offer-label">👓👓 2 Paires</span>
+          <span class="offer-price">55$</span>
+          <span class="offer-note">✓ Tu économises 5$</span>
+        </button>
+      </div>
+
+      <div class="form-field">
+        <label>Nom complet *</label>
+        <input type="text" id="f-nom" placeholder="Ton prénom et nom" />
+      </div>
+      <div class="form-field">
+        <label>Numéro WhatsApp *</label>
+        <input type="tel" id="f-phone" placeholder="+243 XXX XXX XXX" />
+      </div>
+      <div class="form-field">
+        <label>Ville de livraison *</label>
+        <select id="f-ville">
+          <option value="">— Choisir ta ville —</option>
+          <option value="Lubumbashi">Lubumbashi</option>
+          <option value="Kolwezi">Kolwezi</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Adresse ou note (optionnel)</label>
+        <textarea id="f-note" placeholder="Quartier, repère, ou toute autre précision…"></textarea>
+      </div>
+      <button class="submit-btn" onclick="sendOrder()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style="display:inline;vertical-align:middle;margin-right:8px;margin-top:-2px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.116 1.518 5.847L.057 23.882l6.185-1.44A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.374l-.359-.213-3.723.866.901-3.624-.234-.371A9.818 9.818 0 1112 21.818z"/></svg>
+        Envoyer ma commande sur WhatsApp
+      </button>
+      <div class="form-reassurance">🔒 Aucun paiement en avance · Tu vérifies d'abord, puis tu payes</div>
+    </div>
+
+    <div class="confirm-box" id="confirm-box">
+      <div class="confirm-icon">✅</div>
+      <div class="confirm-title">Commande envoyée !</div>
+      <p class="confirm-text">
+        Merci ! WhatsApp s'est ouvert avec ta commande.<br>
+        Appuie sur <strong>Envoyer</strong> dans WhatsApp.<br><br>
+        🚚 <strong>Livraison dans les 2–4h</strong> après confirmation.<br>
+        💵 Tu paieras en espèces à la réception.
+      </p>
+      <button onclick="resetForm()" style="margin-top:20px;background:none;border:1px solid #E3D8C8;padding:10px 24px;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:14px;cursor:pointer;color:var(--mid);">← Passer une nouvelle commande</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="brand">Santé <span style="color:var(--gold);">&</span> Bien Être</div>
+  <div>Lunettes Photochromiques Premium · Lubumbashi &amp; Kolwezi · RDC 🇨🇩</div>
+  <div style="margin-top:6px;">Livraison gratuite · Paiement à la livraison · Boîtier inclus</div>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="sticky-bar">
+  <div class="sticky-info">
+    Lunettes Photochromiques<br>
+    <strong>30$ · Boîtier inclus · Livraison gratuite</strong>
+  </div>
+  <button class="sticky-btn" onclick="document.getElementById('commander').scrollIntoView({behavior:'smooth'})">Commander</button>
+</div>
+
+<script>
+  let selectedOffer = 1;
+
+  function selectOffer(btn, n) {
+    selectedOffer = n;
+    document.querySelectorAll('.offer-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  function sendOrder() {
+    const nom = document.getElementById('f-nom').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    const ville = document.getElementById('f-ville').value;
+    const note = document.getElementById('f-note').value.trim();
+
+    if (!nom || !phone || !ville) {
+      alert('Merci de remplir ton nom, ton numéro WhatsApp et ta ville.');
+      return;
+    }
+
+    const offreText = selectedOffer === 2 ? '2 Paires — 55$' : '1 Paire — 30$';
+    let msg = `Bonjour Santé & Bien Être ! 👋\n\nJe voudrais commander :\n👓 *${offreText}* (Boîtier inclus)\n\n📋 Mes infos :\n• Nom : ${nom}\n• Tél : ${phone}\n• Ville : ${ville}`;
+    if (note) msg += `\n• Note : ${note}`;
+    msg += `\n\n💵 Je paierai en espèces à la livraison.`;
+
+    const waNumber = '243999924108';
+    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
+    window.open(waUrl, '_blank');
+
+    document.getElementById('order-form').style.display = 'none';
+    document.getElementById('confirm-box').classList.add('visible');
+    window.scrollTo({ top: document.getElementById('commander').offsetTop - 80, behavior: 'smooth' });
+  }
+
+  function resetForm() {
+    document.getElementById('order-form').style.display = 'block';
+    document.getElementById('confirm-box').classList.remove('visible');
+    document.getElementById('f-nom').value = '';
+    document.getElementById('f-phone').value = '';
+    document.getElementById('f-ville').value = '';
+    document.getElementById('f-note').value = '';
+  }
+
+  // Hide sticky bar near footer
+  const stickyBar = document.getElementById('sticky-bar');
+  window.addEventListener('scroll', () => {
+    const footer = document.querySelector('footer');
+    const footerTop = footer.getBoundingClientRect().top;
+    stickyBar.style.display = footerTop < window.innerHeight ? 'none' : 'flex';
+  });
+</script>
+</body>
+</html>
